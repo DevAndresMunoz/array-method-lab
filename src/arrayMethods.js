@@ -105,6 +105,35 @@ function returnString(array) {
 // If the number is odd, return the array sorted in descending order.
 // If the number is even, return the array sorted in ascending order
 
+function sortArrayBasedOnNumber(array, number) {
+    if (typeof(array) != 'object') {
+        return "Invalid input";
+    }
+    // let firstType = typeof(array[0]);
+    // if (array.every(item => typeof(item) != firstType)) {
+    //     return "Invalid input";
+    // }
+    if (typeof(array[0]) === 'number') {
+        if (number % 2 === 0) {
+            let ascendingArray = array.sort(function(a, b){return a-b});
+            return ascendingArray;
+        }
+        if (number % 2 != 0) {
+            let descendingArray = array.sort(function(a, b){return b-a});
+            return descendingArray;
+        }
+    }
+    if (typeof(array[0]) == 'string') {
+        if (number % 2 == 0) {
+            let ascendingArray = array.sort();
+            return ascendingArray;
+        }
+        if (number % 2 != 0) {
+            let descendingArray = (array.sort()).reverse();
+            return descendingArray;
+        }
+    }
+}
 
 
 
@@ -208,6 +237,7 @@ module.exports = {
     getNumberOfTimes,
     findAboveFreezing,
     returnString,
+    sortArrayBasedOnNumber,
 
 };
 
